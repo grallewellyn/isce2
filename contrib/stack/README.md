@@ -1,4 +1,4 @@
-## ISCE2 Stack Processors
+## ISCE-2 Stack Processors
 
 Read the document for each stack processor for details.
 

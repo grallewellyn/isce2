@@ -1,0 +1,19 @@
+FROM isce/isce2:20240804
+
+RUN apt-get update -y && \
+    apt-get install -y nano scons libfftw3-dev libxm4 libmotif-dev python3-dev python3-pip git && \
+    apt-get install -y python3-scipy python3-opencv python3-numpy python3-h5py cython3 gdal-bin gfortran libgdal-dev python3-gdal libhdf5-dev python3.9-dev
+
+RUN pip3 install cython opencv-python opencv-contrib-python shapely requests
+
+RUN mkdir -p /home/pkgs /home/.isce
+COPY . /home/pkgs/isce2
+RUN ln -s /home/pkgs/isce2 /home/pkgs/isce 
+
+RUN cp /home/pkgs/isce2/infiles_dps/ISCE_config.sh /home/pkgs/isce2/ && \
+    cp /home/pkgs/isce2/infiles_dps/read_calibration_slc.py /home/pkgs/isce2/contrib/stack/topsStack/ && \
+    cp /home/pkgs/isce2/infiles_dps/SConfigISCE /home/.isce/
+
+RUN bash /home/pkgs/isce2/infiles_dps/install.sh
+
+CMD ["/bin/bash"]

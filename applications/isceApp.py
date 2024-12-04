@@ -1780,13 +1780,13 @@ class IsceApp(Application, FrameMixin):
 
 
 if __name__ == "__main__":
-    if not isce.stanford_license:
-        print("This workflow requires the Stanford licensed code elemnts.")
-        print("Unable to find the license information in the isce.stanford_license file.")
-        print("Please either obtain a stanford license and follow the instructions to")
-        print("install the stanford code elements or else choose a different workflow.")
-        raise SystemExit(0)
-    else:
+    # if not isce.stanford_license:
+    #     print("This workflow requires the Stanford licensed code elemnts.")
+    #     print("Unable to find the license information in the isce.stanford_license file.")
+    #     print("Please either obtain a stanford license and follow the instructions to")
+    #     print("install the stanford code elements or else choose a different workflow.")
+    #     raise SystemExit(0)
+    # else:
         #create the isce object
         isceapp = IsceApp(name='isceApp')
         #configure the isceapp object

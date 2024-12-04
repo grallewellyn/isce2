@@ -1,0 +1,17 @@
+PRJ_SCONS_BUILD = /home/pkgs/isce/build
+PRJ_SCONS_INSTALL = /home/pkgs/isce/isce
+
+LIBPATH=/usr/lib /usr/local/lib /home/pkgs/isce/lib /home/pkgs/isce/lib64 /home/pkgs/isce/lib32 /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial
+
+CPPPATH = /usr/include/hdf5/serial /usr/include/gdal /usr/include/python3.9
+FORTRANPATH =  /usr/include
+FORTRAN = /usr/bin/gfortran
+CC = /usr/bin/gcc
+CXX = /usr/bin/g++
+
+MOTIFLIBPATH = /usr/lib/x86_64-linux-gnu
+X11LIBPATH = /usr/lib/x86_64-linux-gnu
+MOTIFINCPATH = /usr/include  
+X11INCPATH = /usr/include
+
+ENABLE_CUDA = False

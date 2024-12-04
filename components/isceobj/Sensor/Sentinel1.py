@@ -45,7 +45,6 @@ from isceobj.Orbit.OrbitExtender import OrbitExtender
 from isceobj.Planet.AstronomicalHandbook import Const
 from iscesys.Component.Component import Component
 from iscesys.DateTimeUtil.DateTimeUtil import DateTimeUtil as DTUtil
-from isceobj.Util import Poly1D
 import os
 import glob
 import numpy as np
@@ -360,6 +359,7 @@ class Sentinel1(Sensor):
         self.frame.setNumberOfLines(lines)
         self.frame.setNumberOfSamples(samples)
         
+        self.frame.setPassDirection(passDirection)
 
     def extractOrbitFromAnnotation(self):
         '''
@@ -480,6 +480,7 @@ class Sentinel1(Sensor):
         self.parse()
         Extract doppler information as needed by mocomp
         '''
+        from isceobj.Util import Poly1D
 
         node = self._xml_root.find('dopplerCentroid/dcEstimateList')
 
@@ -517,7 +518,7 @@ class Sentinel1(Sensor):
 
 
         ###Actual Doppler Polynomial for accurate processing
-        ###Will be used in stripmapApp
+        ###Will be used in roiApp
         pix = np.linspace(0, self.frame.getNumberOfSamples(), num=dpoly._order+2)
         rngs = self.frame.startingRange + pix * self.frame.getInstrument().getRangePixelSize()
         evals = dpoly(rngs)

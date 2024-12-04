@@ -106,7 +106,7 @@ class ALOS2(Sensor):
         self.leaderFile = None
         self.imageFile = None
 
-        #####Specific doppler functions for ALOS2
+        #####Soecific doppler functions for ALOS2
         self.doppler_coeff = None
         self.azfmrate_coeff = None
         self.lineDirection = None
